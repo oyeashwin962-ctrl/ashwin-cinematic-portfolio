@@ -1,0 +1,6 @@
+{
+  "name": "ASHWIN — Cinematic Creative Portfolio",
+  "description": "Portfolio of Ashwin — Video Editor, Motion Graphics Designer, Graphic Designer, Thumbnail Designer, and AI Creative.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
