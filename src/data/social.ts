@@ -11,15 +11,15 @@ export const socialLinks: SocialLink[] = [
   {
     platform: 'whatsapp',
     label: 'WhatsApp Direct',
-    handle: '+91 98765 43210',
-    url: 'https://wa.me/919876543210?text=Hi%20Ashwin%2C%20I%20would%20like%20to%20discuss%20a%20project',
+    handle: '+91 7397895212',
+    url: 'https://wa.me/917397895212?text=Hi%20Ashwin%2C%20I%20would%20like%20to%20discuss%20a%20project',
     isPrimary: true,
   },
   {
     platform: 'email',
     label: 'Direct Email',
-    handle: 'contact@ashwincreative.com',
-    url: 'mailto:contact@ashwincreative.com?subject=Project%20Inquiry%20%E2%80%94%20Ashwin%20Creative',
+    handle: 'oyeashwin962@gmail.com',
+    url: 'mailto:oyeashwin962@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Ashwin%20Creative',
     isPrimary: true,
   },
   {

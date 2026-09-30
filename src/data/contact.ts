@@ -1,9 +1,9 @@
 import { ContactInfo } from '../types/portfolio';
 
 export const contactInfo: ContactInfo = {
-  email: 'contact@ashwincreative.com',
-  whatsapp: '+91 98765 43210',
-  whatsappUrl: 'https://wa.me/919876543210?text=Hello%20Ashwin%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20collaborate.',
+  email: 'oyeashwin962@gmail.com',
+  whatsapp: '+91 7397895212',
+  whatsappUrl: 'https://wa.me/917397895212?text=Hello%20Ashwin%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20collaborate.',
   instagram: '@oye_ashwin',
   instagramUrl: 'https://www.instagram.com/oye_ashwin/',
   locationNote: 'Available Worldwide / Remote Production Studio',
