@@ -1,6 +1,36 @@
 <!doctype html>
 <html lang="en" class="dark scroll-smooth bg-[#080808] text-[#F3EEE5]">
   <head>
+    <script>
+      (function() {
+        try {
+          var win = typeof window !== 'undefined' ? window : null;
+          var proto = typeof Window !== 'undefined' ? Window.prototype : null;
+          if (!win) return;
+          var currentFetch = win.fetch ? win.fetch.bind(win) : null;
+          if (proto) {
+            var pDesc = Object.getOwnPropertyDescriptor(proto, 'fetch');
+            if (pDesc && !pDesc.set) {
+              Object.defineProperty(proto, 'fetch', {
+                get: function() { return currentFetch; },
+                set: function(fn) { currentFetch = typeof fn === 'function' ? fn.bind(win) : fn; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          }
+          var wDesc = Object.getOwnPropertyDescriptor(win, 'fetch');
+          if (wDesc && !wDesc.set) {
+            Object.defineProperty(win, 'fetch', {
+              get: function() { return currentFetch; },
+              set: function(fn) { currentFetch = typeof fn === 'function' ? fn.bind(win) : fn; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASHWIN — Video Editor &amp; Motion Designer</title>
@@ -18,4 +48,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
