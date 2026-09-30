@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 
 interface ProjectVisualProps {
-  theme: 'nocturne' | 'kinetic' | 'documentary' | 'editorial' | 'thumbnail' | 'ai';
+  theme?: 'nocturne' | 'kinetic' | 'documentary' | 'editorial' | 'thumbnail' | 'ai';
   title?: string;
   category?: string;
   year?: string;
-  aspectRatio?: '16:9' | '4:3' | '21:9';
+  aspectRatio?: '16:9' | '4:3' | '21:9' | '9:16';
+  thumbnail?: string;
   showOverlayUI?: boolean;
   className?: string;
   isInteractive?: boolean;
 }
 
 export const ProjectVisual: React.FC<ProjectVisualProps> = ({
-  theme,
+  theme = 'nocturne',
   title,
   category,
   year,
   aspectRatio = '16:9',
+  thumbnail,
   showOverlayUI = true,
   className = '',
   isInteractive = true,
@@ -29,6 +31,8 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({
         return 'aspect-[21/9]';
       case '4:3':
         return 'aspect-[4/3]';
+      case '9:16':
+        return 'aspect-[9/16]';
       case '16:9':
       default:
         return 'aspect-[16/9]';

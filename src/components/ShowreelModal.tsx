@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Play, Pause, Volume2, VolumeX, Maximize2, RotateCcw } from 'lucide-react';
+import { siteConfig } from '../data/portfolio';
 
 interface ShowreelModalProps {
   isOpen: boolean;
@@ -68,10 +69,10 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose })
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[#d6a84f] animate-pulse" />
             <span className="text-xs font-mono tracking-widest text-[#F3EEE5] uppercase">
-              ASHWIN — OFFICIAL SHOWREEL 2026
+              {siteConfig.showreel.title}
             </span>
             <span className="text-[11px] font-mono text-[#9D9991] hidden sm:inline">
-              · 4K DCI · 24.00 FPS · 2.39:1
+              · 4K DCI · 24.00 FPS · {siteConfig.showreel.duration}
             </span>
           </div>
 
