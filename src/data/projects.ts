@@ -1,18 +1,24 @@
-import { Project, ProjectCategory } from '../types/portfolio';
+import { Project, ProjectCategory, SupportedCategory } from '../types/portfolio';
 
+/**
+ * Centralized Typed Portfolio Content Model
+ * All portfolio project content lives in this single source of truth.
+ * Admin-ready architecture: Easily replaceable, queryable, and CMS-compatible.
+ */
 export const projectsData: Project[] = [
   {
     id: 'nocturne-chronicles',
     slug: 'nocturne-chronicles',
     title: 'NOCTURNE CHRONICLES',
-    category: 'VIDEO EDITING',
+    category: 'Video Editing',
     categorySlug: 'video-editing',
     year: '2026',
     subtitle: 'Cinematic Narrative & Rhythmic Sound Cut',
-    shortDescription: 'Frame-accurate rhythm, sub-bass syncopation and moody color grading in a night-world narrative.',
+    shortDescription: 'Frame-accurate rhythm, sub-bass syncopation and moody color grading in a nocturnal narrative.',
     summary: 'A high-tension editorial cut pairing syncopated sound design with deliberate cinematic pacing.',
     description:
       'Crafted with frame-accurate precision, this project explores pace, psychological tension, and micro-expressions through non-linear editing. Every audio beat and atmospheric sub-bass rumble was mapped to accentuate the camera’s kinetic movements, drawing the viewer deeper into the nocturnal landscape.',
+    role: 'Lead Video Editor & Colorist',
     tools: ['Premiere Pro', 'DaVinci Resolve', 'After Effects', 'iZotope RX'],
     thumbnail: '/assets/projects/nocturne-thumb.jpg',
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
@@ -25,9 +31,9 @@ export const projectsData: Project[] = [
     featured: true,
     published: true,
     order: 1,
-    role: 'Lead Video Editor & Colorist',
     duration: '03:12',
     aspectRatio: '21:9',
+    layout: 'large',
     layoutRatio: 'large',
     visualTheme: 'nocturne',
     accent: '#D6A84F',
@@ -60,7 +66,7 @@ export const projectsData: Project[] = [
     id: 'kinetic-dimensions',
     slug: 'kinetic-dimensions',
     title: 'KINETIC DIMENSIONS',
-    category: 'MOTION GRAPHICS',
+    category: 'Motion Graphics',
     categorySlug: 'motion-graphics',
     year: '2026',
     subtitle: '3D Kinetic Identity & Experimental Type',
@@ -68,6 +74,7 @@ export const projectsData: Project[] = [
     summary: 'Spatial typographic choreography exploring physics-based motion and architectural lighting.',
     description:
       'An exploration of modular typographic systems moving through dimensional space. Letterforms react dynamically to virtual gravity shifts, lighting angles, and camera sweeps, creating an arresting visual cadence designed for modern brand identities.',
+    role: 'Motion Designer & 3D Typographer',
     tools: ['After Effects', 'Cinema 4D', 'Blender', 'Illustrator'],
     thumbnail: '/assets/projects/kinetic-thumb.jpg',
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
@@ -79,9 +86,9 @@ export const projectsData: Project[] = [
     featured: true,
     published: true,
     order: 2,
-    role: 'Motion Designer & 3D Typographer',
     duration: '00:45',
     aspectRatio: '16:9',
+    layout: 'offset',
     layoutRatio: 'offset',
     visualTheme: 'kinetic',
     accent: '#E5C07B',
@@ -114,7 +121,7 @@ export const projectsData: Project[] = [
     id: 'solitude-in-transit',
     slug: 'solitude-in-transit',
     title: 'SOLITUDE IN TRANSIT',
-    category: 'VIDEO EDITING',
+    category: 'Video Editing',
     categorySlug: 'video-editing',
     year: '2025',
     subtitle: 'Atmospheric Documentary & Color Architecture',
@@ -122,6 +129,7 @@ export const projectsData: Project[] = [
     summary: 'Long-form editorial piece focused on stillness, environmental audio, and muted tonal color grading.',
     description:
       'A study in restrained documentary pacing. Rather than relying on hyperactive cuts, the edit relies on spatial continuity, natural light falloff, and field-recorded environmental audio to build an authentic sense of quiet transit through metropolitan corridors.',
+    role: 'Editor & Sound Designer',
     tools: ['DaVinci Resolve', 'Premiere Pro', 'Adobe Audition'],
     thumbnail: '/assets/projects/solitude-thumb.jpg',
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
@@ -133,9 +141,9 @@ export const projectsData: Project[] = [
     featured: true,
     published: true,
     order: 3,
-    role: 'Editor & Sound Designer',
     duration: '08:24',
     aspectRatio: '16:9',
+    layout: 'large',
     layoutRatio: 'large',
     visualTheme: 'documentary',
     accent: '#D6A84F',
@@ -168,7 +176,7 @@ export const projectsData: Project[] = [
     id: 'apex-system-identity',
     slug: 'apex-system-identity',
     title: 'APEX SYSTEM IDENTITY',
-    category: 'GRAPHIC DESIGN',
+    category: 'Graphic Design',
     categorySlug: 'graphic-design',
     year: '2025',
     subtitle: 'Minimalist Editorial Layout & Type Specimen',
@@ -176,6 +184,7 @@ export const projectsData: Project[] = [
     summary: 'Swiss-inspired editorial grid system for an experimental design publication.',
     description:
       'An unyielding typographic grid offset by asymmetrical editorial anchors. Created as a comprehensive design system featuring custom grid proportions, stark contrast between heavy grotesque headers and delicate italic serifs, and disciplined negative space.',
+    role: 'Lead Graphic Designer',
     tools: ['Figma', 'Illustrator', 'InDesign', 'Photoshop'],
     thumbnail: '/assets/projects/apex-thumb.jpg',
     gallery: [
@@ -186,8 +195,8 @@ export const projectsData: Project[] = [
     featured: true,
     published: true,
     order: 4,
-    role: 'Lead Graphic Designer',
     aspectRatio: '4:3',
+    layout: 'offset',
     layoutRatio: 'offset',
     visualTheme: 'editorial',
     accent: '#F3EEE5',
@@ -220,7 +229,7 @@ export const projectsData: Project[] = [
     id: 'hyper-retention-craft',
     slug: 'hyper-retention-craft',
     title: 'HYPER-RETENTION CRAFT',
-    category: 'THUMBNAILS',
+    category: 'Thumbnails',
     categorySlug: 'thumbnails',
     year: '2026',
     subtitle: 'Visual Storytelling & High-CTR Frame Design',
@@ -228,6 +237,7 @@ export const projectsData: Project[] = [
     summary: 'Thumbnails engineered for instant story clarity, depth grading, and visual focal dominance.',
     description:
       'In modern content ecosystems, the thumbnail is not merely an illustration—it is the first frame of video storytelling. This project showcases layered light painting, subject edge separation, and color hierarchy designed to convey high emotional curiosity in under 400 milliseconds.',
+    role: 'Thumbnail Designer & Art Director',
     tools: ['Photoshop', 'Midjourney AI', 'Lightroom', 'Camera Raw'],
     thumbnail: '/assets/projects/hyper-thumb.jpg',
     gallery: [
@@ -238,8 +248,8 @@ export const projectsData: Project[] = [
     featured: true,
     published: true,
     order: 5,
-    role: 'Thumbnail Designer & Art Director',
     aspectRatio: '16:9',
+    layout: 'large',
     layoutRatio: 'large',
     visualTheme: 'thumbnail',
     accent: '#D6A84F',
@@ -272,7 +282,7 @@ export const projectsData: Project[] = [
     id: 'synth-genesis-ai',
     slug: 'synth-genesis-ai',
     title: 'SYNTH GENESIS ARCHIVE',
-    category: 'AI CREATIVE',
+    category: 'AI Creative',
     categorySlug: 'ai-creative',
     year: '2026',
     subtitle: 'Generative Concept Exploration & Hybrid Matte Painting',
@@ -280,6 +290,7 @@ export const projectsData: Project[] = [
     summary: 'Exploration of AI-assisted previsualization, cinematic architectural concept art, and high-resolution textures.',
     description:
       'A series of synthetic architectural environments developed using generative AI as an ideation engine, then manually composited, color-graded, and integrated with filmic grain. The pipeline proves that AI tools amplify visual direction when steered with strict art-direction principles.',
+    role: 'AI Creative Director & Matte Artist',
     tools: ['Midjourney v6', 'Photoshop', 'Magnific AI', 'DaVinci Resolve'],
     thumbnail: '/assets/projects/synth-thumb.jpg',
     gallery: [
@@ -290,8 +301,8 @@ export const projectsData: Project[] = [
     featured: false,
     published: true,
     order: 6,
-    role: 'AI Creative Director & Matte Artist',
     aspectRatio: '21:9',
+    layout: 'offset',
     layoutRatio: 'offset',
     visualTheme: 'ai',
     accent: '#E5C07B',
@@ -320,6 +331,7 @@ export const projectsData: Project[] = [
 /**
  * Data Helpers & Registry Functions for the Portfolio Engine
  */
+
 export function getPublishedProjects(): Project[] {
   return projectsData
     .filter((p) => p.published)
@@ -330,14 +342,22 @@ export function getFeaturedProjects(): Project[] {
   return getPublishedProjects().filter((p) => p.featured);
 }
 
-export function getProjectsByCategory(category: ProjectCategory = 'all'): Project[] {
+export function getProjectsByCategory(category: string = 'all'): Project[] {
   const published = getPublishedProjects();
-  if (category === 'all') return published;
-  return published.filter((p) => p.categorySlug === category);
+  if (!category || category === 'all') return published;
+
+  const normalized = category.toLowerCase().trim();
+  return published.filter((p) => {
+    const catLower = p.category.toLowerCase();
+    const slugLower = p.categorySlug ? p.categorySlug.toLowerCase() : '';
+    return catLower === normalized || slugLower === normalized;
+  });
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projectsData.find((p) => p.slug === slug || p.id === slug);
+  if (!slug) return undefined;
+  const clean = slug.toLowerCase().trim();
+  return projectsData.find((p) => p.slug.toLowerCase() === clean || p.id.toLowerCase() === clean);
 }
 
 export function getAdjacentProjects(currentSlug: string): {
@@ -349,7 +369,7 @@ export function getAdjacentProjects(currentSlug: string): {
     (p) => p.slug === currentSlug || p.id === currentSlug
   );
 
-  if (currentIndex === -1) {
+  if (currentIndex === -1 || published.length === 0) {
     return { prev: null, next: null };
   }
 
@@ -360,4 +380,27 @@ export function getAdjacentProjects(currentSlug: string): {
     prev: published[prevIndex] || null,
     next: published[nextIndex] || null,
   };
+}
+
+/**
+ * Admin-Ready Content Management Helper Stubs
+ * Prepares the architectural interface for future admin / CMS CRUD operations
+ */
+export function adminUpdateProject(id: string, updates: Partial<Project>): Project | null {
+  const idx = projectsData.findIndex((p) => p.id === id);
+  if (idx === -1) return null;
+  projectsData[idx] = { ...projectsData[idx], ...updates };
+  return projectsData[idx];
+}
+
+export function adminAddProject(project: Project): Project {
+  projectsData.push(project);
+  return project;
+}
+
+export function adminDeleteProject(id: string): boolean {
+  const idx = projectsData.findIndex((p) => p.id === id);
+  if (idx === -1) return false;
+  projectsData.splice(idx, 1);
+  return true;
 }

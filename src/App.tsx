@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { CustomCursor } from './components/CustomCursor';
 import { Hero } from './components/Hero';
@@ -17,6 +17,7 @@ import { ShowreelModal } from './components/ShowreelModal';
 import { CinematicTransition } from './components/CinematicTransition';
 import { Footer } from './components/Footer';
 import { Project } from './types/portfolio';
+import { getProjectBySlug } from './data/projects';
 
 export default function App() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
@@ -25,9 +26,45 @@ export default function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionLabel, setTransitionLabel] = useState('PROJECT REVEAL');
 
+  // Synchronize routing with URL slug (/work/slug or #/work/slug)
+  useEffect(() => {
+    const handleUrlChange = () => {
+      if (typeof window === 'undefined') return;
+      const hash = window.location.hash;
+      const pathname = window.location.pathname;
+
+      let slug = '';
+      if (hash.startsWith('#/work/')) {
+        slug = hash.replace('#/work/', '').replace(/\/$/, '');
+      } else if (pathname.startsWith('/work/')) {
+        slug = pathname.replace('/work/', '').replace(/\/$/, '');
+      }
+
+      if (slug) {
+        const found = getProjectBySlug(slug);
+        if (found) {
+          setActiveProject(found);
+          return;
+        }
+      }
+    };
+
+    handleUrlChange();
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, []);
+
   const handleSelectProject = (project: Project) => {
     setTransitionLabel(project.title);
     setIsTransitioning(true);
+
+    if (typeof window !== 'undefined') {
+      window.location.hash = `#/work/${project.slug}`;
+    }
 
     setTimeout(() => {
       setActiveProject(project);
@@ -41,6 +78,10 @@ export default function App() {
   const handleBackToWork = () => {
     setTransitionLabel('PORTFOLIO ARCHIVE');
     setIsTransitioning(true);
+
+    if (typeof window !== 'undefined' && window.location.hash.startsWith('#/work/')) {
+      window.location.hash = '';
+    }
 
     setTimeout(() => {
       setActiveProject(null);
@@ -59,6 +100,10 @@ export default function App() {
   const handleNavigateProject = (project: Project) => {
     setTransitionLabel(project.title);
     setIsTransitioning(true);
+
+    if (typeof window !== 'undefined') {
+      window.location.hash = `#/work/${project.slug}`;
+    }
 
     setTimeout(() => {
       setActiveProject(project);

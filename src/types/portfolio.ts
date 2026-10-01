@@ -1,9 +1,17 @@
 /**
  * Central Content & Portfolio Types for Ashwin's Cinematic Portfolio
  * Decouples the portfolio engine from portfolio content.
+ * Admin-ready data model.
  */
 
-export type ProjectCategory =
+export type SupportedCategory =
+  | 'Video Editing'
+  | 'Motion Graphics'
+  | 'Graphic Design'
+  | 'Thumbnails'
+  | 'AI Creative';
+
+export type CategorySlug =
   | 'all'
   | 'video-editing'
   | 'motion-graphics'
@@ -11,6 +19,7 @@ export type ProjectCategory =
   | 'thumbnails'
   | 'ai-creative';
 
+export type ProjectCategory = CategorySlug;
 export type CategoryDisplay =
   | 'VIDEO EDITING'
   | 'MOTION GRAPHICS'
@@ -47,32 +56,36 @@ export interface ColorGradeSpec {
   shadows: string;
 }
 
+/**
+ * Standard Centralized Project Data Model
+ */
 export interface Project {
   id: string;
   slug: string;
   title: string;
-  category: CategoryDisplay;
-  categorySlug: ProjectCategory;
+  category: SupportedCategory | string;
+  categorySlug?: CategorySlug;
   year: string;
   description: string;
+  shortDescription: string;
+  role: string;
   tools: string[];
   thumbnail: string;
   video?: string;
-  gallery?: string[];
-  projectType: 'commercial' | 'narrative' | 'experimental' | 'spec' | 'client';
+  gallery: string[];
+  projectType: string;
   featured: boolean;
   published: boolean;
   order: number;
+  duration?: string;
+  aspectRatio?: string;
+  layout?: 'large' | 'offset' | 'wide' | 'tall';
+  layoutRatio?: 'large' | 'offset'; // backward compatibility
+  visualTheme?: 'nocturne' | 'kinetic' | 'documentary' | 'editorial' | 'thumbnail' | 'ai' | string;
   
-  // Optional enrichment fields
-  shortDescription?: string;
+  // Optional enrichment fields for deep case study presentation
   subtitle?: string;
   summary?: string;
-  role?: string;
-  duration?: string;
-  aspectRatio?: '16:9' | '4:3' | '21:9' | '9:16';
-  layoutRatio?: 'large' | 'offset';
-  visualTheme?: 'nocturne' | 'kinetic' | 'documentary' | 'editorial' | 'thumbnail' | 'ai';
   tags?: string[];
   accent?: string;
   externalUrl?: string;
@@ -106,7 +119,7 @@ export interface InstagramQRConfig {
   profileUrl: string;
   label: string;
   caption: string;
-  qrAssetUrl?: string; // Optional custom uploaded QR image
+  qrAssetUrl?: string;
 }
 
 export interface ContactInfo {

@@ -22,12 +22,13 @@ export const siteConfig: SiteConfig = {
     { label: 'CONTACT', sectionId: 'contact' },
   ],
   showreel: {
-    title: 'CINEMATIC SHOWREEL 2026',
-    tagline: 'Visual Rhythm, Motion Choreography & Graphic Systems',
-    duration: '01:45',
+    title: 'FACELESS EDITOR WORKFLOW REEL',
+    tagline: 'Visual Rhythm, Multi-Track Editing & Graphic Systems',
+    duration: '00:08',
     aspectRatio: '16:9',
-    posterImage: '/assets/showreel-poster.jpg',
+    posterImage: '/assets/editor-reel-poster.svg',
+    videoUrl: '/assets/Faceless_video_editor_hero_video_20260930180652.mp4',
     description:
-      'A curated sequence of narrative film edits, dynamic motion typography, procedural title design, and high-impact visual storytelling.',
+      '8-second faceless editor workflow reel showcasing cutting timeline, rhythmic montage, keyframe choreography, and thumbnail grading.',
   },
 };
